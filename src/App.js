@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import HeaderTask from './HeaderTask';
+import TaskItems from './TaskItems';
+import TaskInput from './TaskInput';
+import { Provider } from 'react-redux';
+import { store } from './redux/redux'
 
 function App() {
+
+  const [tasks, setTasks] = useState();
+  
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <HeaderTask />
+        <TaskItems />
+        <TaskInput />
+      </div>
+    </Provider>
   );
 }
 
